@@ -5,6 +5,7 @@ inside the `search_loop` function.
 
 import sys
 import os
+import BST
 
 def get_char() -> str:
     """

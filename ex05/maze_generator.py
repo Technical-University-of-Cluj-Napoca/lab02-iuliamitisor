@@ -1,5 +1,6 @@
 import random
 import sys
+import search_maze
 
 def generate_maze(height: int, width: int) -> list[list[str]]:
     # Ensure odd dimensions for walls and passages
@@ -56,4 +57,7 @@ if __name__ == "__main__":
     width = int(sys.argv[2])
 
     maze = generate_maze(height, width)
-    print_maze(maze)
+    coords = search_maze.find_start_and_target(maze)
+    start = (coords[0][1], coords[0][0])
+    target = (coords[1][1], coords[1][0])
+    search_maze.print_maze_with_path(maze, search_maze.bfs(maze, start, target))
